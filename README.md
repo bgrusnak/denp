@@ -5,7 +5,7 @@ Thanks to https://medium.com/@vetinary9212/%D1%80%D0%B0%D0%B7%D0%B2%D0%BE%D1%80%
 
 ## How to use it
 1. Open docker-compose.yml, read it and fix as you wish
-2. Use dbmate in pg folder for the building of the db migrations
+2. Use dbmate in pg folder for the building of the db migrations (Look at https://github.com/amacneil/dbmate for the information)
 3. Put your Erlang backend into back
 4. Put your Node.JS frontend into front
 5. Build plain html frontend in front/dist
