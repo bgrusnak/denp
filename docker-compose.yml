@@ -1,0 +1,45 @@
+
+sources:
+  build: ./sources/
+  volumes: 
+    - ./back/:/app/backend
+    - ./front/:/app/frontend
+    - ./pg/:/app/pg
+pg:
+  build: ./pg/
+  ports:
+    - "5433:5432"
+  volumes:
+    - /var/lib/pgdata:/var/pgdata 
+  environment:
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: 123456 
+    PGDATA: /var/pgdata
+    POSTGRES_DB: database
+frontend:
+  build: ./front
+  volumes_from:
+    - sources
+  environment:
+    - WEBPACK_PARAMS
+  ports:
+    - "8090:8090"
+backend:
+  build: ./back/
+  volumes_from:
+    - sources
+  links:
+    - pg 
+  ports:
+    - "8080:8080"
+    - "8443:8443" 
+nginx:
+  build: ./nginx/
+  volumes_from:
+    - sources
+  ports:
+    - "8000:80"
+    - "8444:443"
+  links:
+    - backend
+    - frontend

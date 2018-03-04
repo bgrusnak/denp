@@ -1,3 +1,9 @@
+# Erlang files
+deps
+ebin
+erl_crash.dump
+*.json
+
 # Logs
 logs
 *.log
@@ -56,4 +62,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Mac design files
+.DS_Store
 

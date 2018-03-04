@@ -1,0 +1,17 @@
+%% Feel free to use, reuse and abuse the code in this file.
+
+{application, example, [
+	{description, "Cowboy REST Hello World example."},
+	{vsn, "1.0.0"},
+	{modules, []},
+	{registered, [example_sup]},
+	{applications, [
+		kernel,
+		stdlib,
+                lager,
+                jsone,
+		cowboy
+	]},
+	{mod, {example_app, []}},
+	{env, []}
+]}.
